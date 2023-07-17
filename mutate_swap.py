@@ -74,7 +74,8 @@ def mutate(peptide,chance=5,c2a=c2a,a2c=a2c):
     #mutation
     chance=int(chance)
     mrt="".join(["ACGT"[random.randint(0,3)] if random.randrange(1, 101, 1)<=chance*4/3 else rt[ix] for ix,i in enumerate(range(len(rt)))])
-    
+    #chance*4/3 because 3 out of 4 aas are different from the current 
+  
     #translation
     tr="".join([c2a.get(mrt[i:i+3]) for i in range(0, len(mrt), 3)]) 
     return tr
